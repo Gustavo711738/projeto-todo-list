@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de Tarefas</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" type="image/png" sizes="64x64" href="assets/images/icons8-lista-de-tarefas-64.png">
+</head>
+<body>
+  <main class="container" aria-label="Aplicativo de Lista de Tarefas">
+    <h1> Sistema de Lista de Tarefas</h1>
+
+    <!-- Formulário para adicionar uma nova tarefa -->
+    <form id="task-form" aria-label="Formulário de Nova Tarefa" autocomplete="off">
+      <div class="form-group">
+        <label for="titulo">Título</label>
+        <input type="text" id="titulo" name="titulo" required maxlength="60" aria-required="true">
+      </div>
+      <div class="form-group">
+        <label for="descricao">Descrição</label>
+        <textarea id="descricao" name="descricao" rows="2" maxlength="200" required></textarea>
+      </div>
+      <div class="form-group">
+        <label for="prioridade">Prioridade</label>
+        <select id="prioridade" name="prioridade" required aria-required="true">
+          <option value="baixa">Baixa</option>
+          <option value="média">Média</option>
+          <option value="alta">Alta</option>
+        </select>
+      </div>
+      <button type="submit" id="btn-adicionar">Adicionar Tarefa</button>
+    </form>
+    
+    <!-- Campo de busca por título -->
+    <section class="search-section" aria-label="Busca de Tarefas">
+      <input type="search" id="busca" placeholder="Buscar por título..." aria-label="Buscar tarefa por título">
+    </section>
+    
+    <!-- Mensagem para quando não há tarefas cadastradas -->
+    <section id="mensagem-vazia" class="mensagem-vazia" aria-live="polite" hidden>
+      Nenhuma tarefa cadastrada.
+    </section>
+    
+    <!-- Lista principal onde as tarefas serão renderizadas -->
+    <ul id="lista-tarefas" aria-label="Lista de Tarefas"></ul>
+  </main>
+  
+  <!-- Modal para edição de tarefa -->
+  <div id="modal-edicao" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-titulo" hidden>
+    <div class="modal-conteudo">
+      <h2 id="modal-titulo">Editar Tarefa</h2>
+      
+      <!-- Formulário de edição de tarefa -->
+      <form id="form-edicao">
+        <!-- Campo oculto para guardar o ID da tarefa -->
+        <input type="hidden" id="edit-id">
+        
+        <!-- Campo para editar o título da tarefa -->
+        <div class="form-group">
+          <label for="edit-titulo">Título*</label>
+          <input type="text" id="edit-titulo" required maxlength="60">
+        </div>
+
+        <!-- Campo para editar o título a descrição da tarefa -->
+        <div class="form-group">
+          <label for="edit-descricao">Descrição</label>
+          <textarea id="edit-descricao" rows="2" maxlength="200"></textarea>
+        </div>
+
+        <!-- Campo para editar a prioridade da tarefa -->
+        <div class="form-group">
+          <label for="edit-prioridade">Prioridade*</label>
+          <select id="edit-prioridade" required>
+            <option value="baixa">Baixa</option>
+            <option value="média">Média</option>
+            <option value="alta">Alta</option>
+          </select>
+        </div>
+
+        <!-- Botões de ação do modal -->
+        <button type="submit">Salvar</button>
+        <button type="button" id="btn-cancelar-edicao">Cancelar</button>
+      </form>
+    </div>
+  </div>
+  
+  <script type="module" src="assets/js/main.js"></script>
+</body>
+</html>
