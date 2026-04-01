@@ -14,4 +14,4 @@ Permite adicionar, editar, excluir, buscar e alternar status entre "pendente" e 
 
 Projeto desenvolvido para faculdade na disciplina de Fundamentos da Pogramação Web.
 
-Link da Page: https://gustavo711738.github.io/projeto-todo-list/
+Link da Page: https://gustavo711738.github.io/des-web-26-gustavo-5261308/
